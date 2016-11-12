@@ -286,10 +286,11 @@ module Spaceship
 
           # look up the app_id by the bundle_id
           if bundle_id
-            app = Spaceship::App.find(bundle_id)
-            raise "Could not find app with bundle id '#{bundle_id}'" unless app
-            app_id = app.app_id
+            website_push = Spaceship::WebsitePush.find(bundle_id)
+            raise "Could not find website push id with bundle id '#{bundle_id}'" unless website_push
+            app_id = website_push.website_id
           end
+
 
           # ensure csr is a OpenSSL::X509::Request
           csr = OpenSSL::X509::Request.new(csr) if csr.kind_of?(String)

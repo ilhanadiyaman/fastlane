@@ -317,7 +317,8 @@ module Spaceship
         teamId: team_id,
         type: type,
         csrContent: csr,
-        appIdId: app_id # optional
+        websitePushId: app_id,
+        specialIdentifierDisplayId: app_id
       })
       parse_response(r, 'certRequest')
     end
